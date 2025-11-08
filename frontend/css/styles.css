@@ -1,0 +1,29 @@
+:root{
+  --accent:#0b6efd;
+  --muted:#666;
+  --card:#fff;
+  --bg:#f6f8fb;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial;background:var(--bg);margin:0;color:#111}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:white;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.topbar nav a{margin-left:12px;text-decoration:none;color:var(--muted)}
+.container{max-width:1100px;margin:28px auto;padding:0 16px}
+.hero{background:linear-gradient(90deg,#fff 60%, rgba(11,110,253,0.06));padding:28px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+.btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block}
+.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.features{display:flex;gap:14px;margin-top:18px}
+.card{background:white;padding:14px;border-radius:10px;flex:1;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card .small{color:var(--muted);font-size:14px}
+.footer{text-align:center;padding:18px;color:var(--muted);margin-top:28px}
+
+/* forms */
+form{background:white;padding:14px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.04);max-width:600px}
+label{display:block;margin-bottom:10px}
+input,select{width:100%;padding:8px;margin-top:6px;border-radius:6px;border:1px solid #e6e9ef}
+.chart-card{background:white;padding:12px;border-radius:10px}
+table{width:100%;border-collapse:collapse}
+table tr:nth-child(even){background:#fff}
+table th,table td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+.message{margin-top:12px;padding:10px;border-radius:6px}

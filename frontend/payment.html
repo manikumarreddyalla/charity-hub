@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mock Payment</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><h1>Mock Payment</h1><nav><a href="/">Home</a></nav></header>
+  <main class="container">
+    <form id="paymentForm" class="card">
+      <label>Payer name <input id="payerName" required></label>
+      <label>Email <input id="payerEmail" type="email" required></label>
+      <label>NGO <select id="payNgoSelect"></select></label>
+      <label>Amount <input id="payAmount" type="number" min="1" required></label>
+      <button class="btn" type="submit">Pay (simulate)</button>
+    </form>
+    <div id="paymentMsg" class="message"></div>
+  </main>
+  <script>
+  (async ()=>{
+    const res = await fetch('/api/ngos').then(r=>r.json());
+    const sel = document.getElementById('payNgoSelect');
+    res.forEach(n=> sel.appendChild(Object.assign(document.createElement('option'), {value:n.id, textContent: n.name})));
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>NGO Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><h1>NGO Profile</h1><nav><a href="/">Home</a></nav></header>
+  <main class="container">
+    <div id="ngoContent" class="card">Loading...</div>
+  </main>
+  <script>
+  async function load() {
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    if (!id) { document.getElementById('ngoContent').innerText='Missing id'; return; }
+    const res = await fetch('/api/ngos/' + id);
+    const data = await res.json();
+    document.getElementById('ngoContent').innerHTML = `<h2>${data.name}</h2><p>${data.location} • ${data.category}</p><p>${data.summary}</p><div>${data.details || ''}</div>`;
+    // show recommendations
+    const rec = await fetch('/api/recommendations?ngo_id=' + id).then(r => r.json());
+    if (rec && rec.recommendations) {
+      document.getElementById('ngoContent').innerHTML += '<h3>Similar NGOs</h3><ul>' + rec.recommendations.map(r => `<li><a href="/ngo_profile.html?id=${r.id}">${r.name}</a> — ${r.summary}</li>`).join('') + '</ul>';
+    }
+  }
+  load();
+  </script>
+</body>
+</html>

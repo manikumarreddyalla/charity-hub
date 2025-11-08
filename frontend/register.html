@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Register - Charity Hub</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Charity Hub - Register</h1>
+    <nav><a href="/">Home</a></nav>
+  </header>
+  <main class="container">
+    <form id="registerForm" class="card">
+      <label>Name <input id="regName" required></label>
+      <label>Email <input id="regEmail" type="email" required></label>
+      <label>Password <input id="regPassword" type="password" required></label>
+      <button class="btn" type="submit">Register</button>
+    </form>
+    <div id="regMsg" class="message"></div>
+    <p>Already have an account? <a href="/login.html">Login</a></p>
+  </main>
+</body>
+</html>
