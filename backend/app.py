@@ -24,7 +24,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-# Recommender instance (global)
+# Recommender
 recommender = TFIDFRecommender()
 
 def fit_recommender():
